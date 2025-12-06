@@ -1,15 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxt/ui", "@pinia/nuxt"],
-  css: ["~/assets/css/main.css"],
+  modules: [
+    "@nuxt/ui",  // This loads the UI components—installs via npm
+    "@pinia/nuxt"  // State management (keep if using Pinia for watchlist)
+  ],
+  css: ["~/assets/css/main.css"],  // Your custom styles
 
-  // THIS IS THE ONLY THING YOU NEED — FIXES "NO RESULTS" FOREVER
+  // API CONFIG — FIXES "NO RESULTS" WITH YOUR BACKEND
   runtimeConfig: {
     public: {
-      // Your working Consumet backend (ROOT URL only)
-      apiBase: "https://apiconsumet12369.vercel.app"
-      // Code will automatically add /anime/gogoanime/home, /search, etc.
+      apiBase: "https://apiconsumet12369.vercel.app"  // Root URL; code appends /anime/gogoanime/home
     }
   },
 
